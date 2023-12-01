@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel='stylesheet' href="static/reset.css">
+	<link rel='stylesheet' href="static/style.css">
+	<link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+	<title>To-do List</title>
+</head>
+
+<body>
+	<div id="allContainer" class="container">
+		<div id="mySidenav" class="sidenav">
+			<a href="#" onclick="addTaskForm()">Add Task</a>
+			<a href="#" onclick="filterTask('all')">All</a>
+			<hr>
+			<p>Status</p>
+			<hr>
+			<a href="#" onclick="filterTask('todo')">To Do</a>
+			<a href="#" onclick="filterTask('doing')">Doing</a>
+			<a href="#" onclick="filterTask('completed')">Done</a>
+			<hr>
+			<p>Category</p>
+			<hr>
+			<a href="#" onclick="filterTask('intern')">Intern</a>
+			<a href="#" onclick="filterTask('weekend')">Weekend</a>
+			<a href="#" onclick="filterTask('hostel')">Hostel</a>
+			<hr>
+			<label class=" middle switch">
+				<input type="checkbox" id="viewToggle" onclick="switchview()">
+				<span class="slider round"></span>
+			</label>
+		</div>
+		<div class=heading>
+			<img width="64" height="64"
+				src="https://img.icons8.com/external-bearicons-glyph-bearicons/64/external-To-Do-List-reminder-and-to-do-bearicons-glyph-bearicons.png"
+				alt="external-To-Do-List-reminder-and-to-do-bearicons-glyph-bearicons" />
+			<h2>To do list</h2>
+
+		</div>
+		<div id="add-task-modal" class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<span id="successMessage" style="display: none;"> Task has been added.</span>
+				<span id="errorMessage" style="display: none;">* All fields are required.</span>
+				<input id="new-task-title" type="text" placeholder="Title">
+				<textarea id="new-task-desc" type="text" placeholder="Description"></textarea>
+				<select id="new-task-categoty">
+					<option value="intern">Intern</option>
+					<option value="weekend">Weekend</option>
+					<option value="hostel">Hostel</option>
+				</select>
+				<button id="addButton" onclick="addTask()" class="add">Add</button>
+			</div>
+		</div>
+
+		<div id="task-html" class="table-tbl">
+			<table>
+				<thead>
+					<tr>
+						<th>Title</th>
+						<th>Description</th>
+						<th>Category</th>
+						<th>Status</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody id="task-table-body">
+					
+				</tbody>
+			</table>
+		</div>
+		<div class="dragdrop" id="card-view">
+			<div id="todoCard" class="card">
+				<h2>To Do</h2>
+				<ul id="todoList">
+				</ul>
+			</div>
+			<div id="doingCard" class="card">
+				<h2>Doing</h2>
+				<ul id="doingList">
+				</ul>
+			</div>
+			<div id="doneCard" class="card">
+				<h2>Done</h2>
+				<ul id="doneList">
+
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div id="show-task-modal" class="modal">
+		<div class="modal-content">
+			<span class="close">&times;</span>
+			<p id="taskData"></p>
+		</div>
+	</div>
+
+	<script src="script.js"></script>
+
+</body>
+
+</html>
