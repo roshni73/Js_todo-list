@@ -147,9 +147,15 @@ function populateList(arr = tasks) {
         } else if (task.status === 'completed') {
             doneList.appendChild(li);
         }
+        if (task.status === 'completed') {
+            doingList.appendChild(li);
+           
+        } else if (task.status === 'doing') {
+            todoList.appendChild(li);
+        }
+
     });
 }
-
 
 function completeTask(index) {
     if(tasks[index].status === 'todo') {
